@@ -223,7 +223,7 @@ export const AddAdPageBarImg = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 10px;
-	overflow: hidden;
+	
 	@media ${device.min} {
 		width: 100%;
 		justify-content: space-around;
@@ -419,5 +419,8 @@ export const AddAdPageDeleteDiv = styled.div`
 	}
 	&:after {
 		transform: rotate(-45deg);
+	}
+	@media ${device.min} {
+		left: 85%
 	}
 `;

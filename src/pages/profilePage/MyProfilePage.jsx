@@ -13,7 +13,7 @@ import {
 import { AddAdPage } from '../addAd/AddAdPage';
 import * as S from './MyProfilePage.styles';
 
-export const ProfilePage = ({ user, isLoading }) => {
+export const ProfilePage = ({ user, isLoading, token }) => {
 	const [name, setName] = useState(null);
 	const [surname, setSurname] = useState(null);
 	const [phone, setPhone] = useState(null);
@@ -83,7 +83,7 @@ export const ProfilePage = ({ user, isLoading }) => {
 					<Spinner />
 				) : (
 					<S.ProfilePageContainer>
-						<Header setActiveAddAd={setActiveAddAd} />
+						<Header setActiveAddAd={setActiveAddAd} token={token} />
 						<S.ProfilePageMain>
 							<S.ProfilePageMainContainer>
 								<S.ProfilePageMainCenterBlock>
