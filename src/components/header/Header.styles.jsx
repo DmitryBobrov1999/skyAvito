@@ -14,6 +14,24 @@ export const ProfilePageHeader = styled.header`
 	}
 `;
 
+export const MainPageHeaderBtnMainEnter = styled.button`
+	width: 224px;
+	height: 40px;
+	border: 1px solid #ffffff;
+	border-radius: 6px;
+	background-color: transparent;
+	color: #ffffff;
+	font-size: 16px;
+	line-height: 1;
+	&:hover {
+		background: rgba(255, 255, 255, 0.15);
+		border: 1px solid #ffffff;
+	}
+	@media ${device.min} {
+		display: none;
+	}
+`;
+
 export const ProfilePageHeaderNav = styled.nav`
 	max-width: 1178px;
 	margin: 0 auto;

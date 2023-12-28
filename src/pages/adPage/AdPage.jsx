@@ -50,7 +50,7 @@ export const AdPage = ({ token }) => {
 					<Spinner />
 				) : (
 					<S.AdPageContainer>
-						<Header setActiveAddAd={setActiveAddAd} />
+						<Header setActiveAddAd={setActiveAddAd} token={token} />
 
 						<S.AdPageMain>
 							<S.AdPageMainContainer>

@@ -9,7 +9,7 @@ import { Header } from '../../components/header/Header';
 import { Footer } from '../../components/footer/Footer';
 import * as S from './SellerProfilePage.styles';
 
-export const SellerProfilePage = () => {
+export const SellerProfilePage = ({ token }) => {
 	const [showNumber, setShowNumber] = useState(false);
 	let { id, user_id } = useParams();
 	const { data: sellerAds, isLoading } = useSellerAdsQuery({ user_id });
@@ -27,7 +27,7 @@ export const SellerProfilePage = () => {
 					<Spinner />
 				) : (
 					<S.SellerProfilePageContainer>
-						<Header />
+						<Header token={token} setActiveAddAd={setActiveAddAd} />
 
 						<S.SellerProfilePageMain>
 							<S.SellerProfilePageMainContainer>

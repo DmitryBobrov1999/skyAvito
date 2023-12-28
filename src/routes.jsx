@@ -29,6 +29,7 @@ export const AppRoutes = () => {
 						path='/profile'
 						element={
 							<ProfilePage
+								token={token}
 								isSuccess={isSuccess}
 								user={user}
 								isLoading={isLoading}

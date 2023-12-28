@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import * as S from './Header.styles';
 
-export const Header = ({ setActiveAddAd }) => {
+export const Header = ({ setActiveAddAd, token }) => {
 	return (
 		<S.ProfilePageHeader>
 			<S.ProfilePageHeaderNav>
@@ -71,13 +71,24 @@ export const Header = ({ setActiveAddAd }) => {
 						</svg>
 					</NavLink>
 				</S.MainPageMainLittleSvg>
-
-				<S.ProfilePageHeaderBtnPutAd onClick={() => setActiveAddAd(true)}>
-					Разместить объявление
-				</S.ProfilePageHeaderBtnPutAd>
-				<NavLink to='/profile'>
-					<S.ProfilePageHeaderBtnLk>Личный кабинет</S.ProfilePageHeaderBtnLk>
-				</NavLink>
+				{token ? (
+					<>
+						<S.ProfilePageHeaderBtnPutAd onClick={() => setActiveAddAd(true)}>
+							Разместить объявление
+						</S.ProfilePageHeaderBtnPutAd>
+						<NavLink to='/profile'>
+							<S.ProfilePageHeaderBtnLk>
+								Личный кабинет
+							</S.ProfilePageHeaderBtnLk>
+						</NavLink>
+					</>
+				) : (
+					<NavLink to='/login'>
+						<S.MainPageHeaderBtnMainEnter>
+							Вход в личный кабинет
+						</S.MainPageHeaderBtnMainEnter>
+					</NavLink>
+				)}
 			</S.ProfilePageHeaderNav>
 		</S.ProfilePageHeader>
 	);

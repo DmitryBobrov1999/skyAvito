@@ -3,7 +3,6 @@ const size = {
 	minAverage: '768px',
 	average: '890px',
 	max: '1158px',
-	
 };
 
 export const device = {
