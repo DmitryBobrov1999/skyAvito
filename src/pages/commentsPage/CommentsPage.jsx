@@ -1,7 +1,7 @@
 import * as S from './CommentsPage.styles';
 import moment from 'moment/moment';
 import { useState } from 'react';
-import { useAddCommentMutation } from '../../store/slices/apiSlice';
+import { useAddCommentMutation } from '@store/slices/apiSlice';
 
 export const CommentsPage = ({ setActiveModal, specificAd, comments }) => {
 	const [text, setText] = useState('');

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../breakPoints';
+import { device } from '../../breakPoints';
 
 export const CommentsPageWrapper = styled.div`
 	width: 100%;
@@ -28,7 +28,6 @@ export const CommentsPageModalBlock = styled.div`
 	opacity: 1;
 	@media ${device.max} {
 		top: 79px;
-		
 	}
 	@media ${device.min} {
 		position: absolute;

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { device } from '../breakPoints';
+import { device } from '../../breakPoints';
 
 export const MainPageWrapper = styled.div`
 	width: 100%;

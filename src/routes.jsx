@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { MainPage } from '@pages/mainPage/MainPage';
+import { MainPage } from './pages/mainPage/MainPage';
 import { LoginPage } from './pages/loginPage/LoginPage';
 import { RegPage } from './pages/regPage/RegPage';
 import { ProfilePage } from './pages/profilePage/MyProfilePage';
-import { ProtectedRoute } from './components/ProtectedRoute';
+import { ProtectedRoute } from './components/protectedRoute/ProtectedRoute';
 import api from './store/slices/userApiSlice'
 
 

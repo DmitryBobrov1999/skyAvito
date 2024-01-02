@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../breakPoints';
+import { device } from '../../breakPoints';
 
 export const AdPageWrapper = styled.div`
 	width: 100%;
@@ -60,8 +60,6 @@ export const AdPageMain = styled.div`
 	margin: 0 auto;
 	@media ${device.max} {
 		width: 100%;
-	
-	
 	}
 `;
 

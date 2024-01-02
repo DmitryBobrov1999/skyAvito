@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { usePostAdMutation } from '../../store/slices/apiSlice';
+import { usePostAdMutation } from '@store/slices/apiSlice';
 import * as S from './AddAdPage.styles';
 
 export const AddAdPage = ({ setActiveAddAd }) => {
