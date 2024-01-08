@@ -4,6 +4,9 @@ import { logOut, setCredentials } from './authSlice';
 export const baseQuery = fetchBaseQuery({
 	baseUrl: 'http://localhost:8090',
 	credentials: 'include',
+	headers: {
+		Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+	},
 	prepareHeaders: (headers, { getState }) => {
 		const token = getState().auth.token;
 

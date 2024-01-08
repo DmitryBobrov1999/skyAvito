@@ -1,17 +1,27 @@
 import { NavLink } from 'react-router-dom';
 import * as S from './Header.styles';
 import { LittleLogo } from '@icons/LittleLogo';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { setAuth } from '@store/slices/authSlice';
 
-export const Header = ({ setActiveAddAd, token }) => {
+export const Header = ({ setActiveAddAd }) => {
+	const { isAuth } = useSelector(state => state.auth);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(setAuth());
+	}, [dispatch]);
+	
 	return (
 		<S.ProfilePageHeader>
 			<S.ProfilePageHeaderNav>
 				<S.MainPageMainLittleSvg>
 					<NavLink to='/'>
-						<LittleLogo/>
+						<LittleLogo />
 					</NavLink>
 				</S.MainPageMainLittleSvg>
-				{token ? (
+				{isAuth ? (
 					<>
 						<S.ProfilePageHeaderBtnPutAd onClick={() => setActiveAddAd(true)}>
 							Разместить объявление

@@ -5,6 +5,7 @@ import myApi from '@store/slices/userApiSlice';
 import * as S from './LoginPage.styles';
 import { AuthLogo } from '@icons/AuthLogo';
 
+
 export const LoginPage = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -28,7 +29,7 @@ export const LoginPage = () => {
 				const user = await getUser();
 
 				localStorage.setItem('myId', user.data.id);
-
+		
 				setEmail('');
 				setPassword('');
 				navigate('/');
@@ -49,7 +50,7 @@ export const LoginPage = () => {
 					<S.LoginPageModalForm action='#'>
 						<S.LoginPageModalLogo>
 							<NavLink to='/'>
-								<AuthLogo/>
+								<AuthLogo />
 							</NavLink>
 						</S.LoginPageModalLogo>
 						<S.LoginPageModalInput

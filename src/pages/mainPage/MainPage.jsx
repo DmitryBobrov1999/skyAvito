@@ -9,12 +9,20 @@ import { AddAdPage } from '../addAd/AddAdPage';
 import { Footer } from '@components/footer/Footer';
 import { BigLogo } from '@icons/BigLogo';
 import { LittleLogo } from '@components/icons/LittleLogo';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAuth } from '@store/slices/authSlice';
 
-export const MainPage = ({ token }) => {
+export const MainPage = () => {
 	const { data: allAds, isLoading } = useGetAdsQuery();
 	const [filteredWords, setFilteredWords] = useState('');
 	const [filteredAds, setFilteredAds] = useState(null);
 	const [activeAddAd, setActiveAddAd] = useState(null);
+	const { isAuth } = useSelector(state => state.auth);
+
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(setAuth());
+	}, [dispatch]);
 
 	useEffect(() => {
 		setFilteredAds(allAds);
@@ -52,7 +60,7 @@ export const MainPage = ({ token }) => {
 					<S.MainPageContainer>
 						<S.MainPageHeader>
 							<S.MainPageHeaderNav>
-								{token ? (
+								{isAuth ? (
 									<>
 										<NavLink to='/login'>
 											<S.MainPageHeaderBtnMainEnter

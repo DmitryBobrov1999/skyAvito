@@ -10,7 +10,7 @@ import { Footer } from '@components/footer/Footer';
 import * as S from './SellerProfilePage.styles';
 import { BigLogo } from '@icons/BigLogo';
 
-export const SellerProfilePage = ({ token }) => {
+export const SellerProfilePage = () => {
 	const [showNumber, setShowNumber] = useState(false);
 	let { id, user_id } = useParams();
 	const { data: sellerAds, isLoading } = useSellerAdsQuery({ user_id });
@@ -28,7 +28,7 @@ export const SellerProfilePage = ({ token }) => {
 					<Spinner />
 				) : (
 					<S.SellerProfilePageContainer>
-						<Header token={token} setActiveAddAd={setActiveAddAd} />
+						<Header  setActiveAddAd={setActiveAddAd} />
 
 						<S.SellerProfilePageMain>
 							<S.SellerProfilePageMainContainer>

@@ -7,10 +7,8 @@ export const authApiSlice = apiSlice.injectEndpoints({
 			query: () => ({
 				url: '/user',
 				method: 'GET',
-				headers: {
-					Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-				},
 			}),
+
 			providesTags: result =>
 				result
 					? [({ id }) => ({ type: 'User', id }), { type: 'User', id: 'LIST' }]
@@ -21,9 +19,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
 			query: credentials => ({
 				url: '/user',
 				method: 'PATCH',
-				headers: {
-					Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-				},
+
 				body: { ...credentials },
 			}),
 			invalidatesTags: [{ type: 'User', id: 'LIST' }],
@@ -35,9 +31,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
 				return {
 					url: '/user/avatar',
 					method: 'POST',
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-					},
+
 					body: formData,
 				};
 			},

@@ -15,7 +15,7 @@ import { EditAdPage } from '../editAdPage/EditAdPage';
 import { Header } from '@components/header/Header';
 import { Footer } from '@components/footer/Footer';
 
-export const AdPage = ({ token }) => {
+export const AdPage = () => {
 	let { id } = useParams();
 	const [showNumber, setShowNumber] = useState(false);
 	const [image, setImage] = useState(0);
@@ -50,7 +50,7 @@ export const AdPage = ({ token }) => {
 					<Spinner />
 				) : (
 					<S.AdPageContainer>
-						<Header setActiveAddAd={setActiveAddAd} token={token} />
+						<Header setActiveAddAd={setActiveAddAd} />
 
 						<S.AdPageMain>
 							<S.AdPageMainContainer>
