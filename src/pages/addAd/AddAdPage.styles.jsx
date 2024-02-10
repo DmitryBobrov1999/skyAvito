@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../breakPoints';
+import { device } from '../../breakPoints';
 
 export const AddAdPageBlock = styled.div`
 	position: fixed;
@@ -139,7 +139,7 @@ export const AddAdPageBtnCloseLine = styled.div`
 		}
 	}
 	@media ${device.min} {
-		display: none
+		display: none;
 	}
 `;
 

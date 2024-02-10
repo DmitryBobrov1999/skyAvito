@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../breakPoints';
+import { device } from '../../breakPoints';
 
 export const SellerProfilePageWrapper = styled.div`
 	width: 100%;

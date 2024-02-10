@@ -5,7 +5,6 @@ export const apiSlice = createApi({
 	reducerPath: 'apiSlice',
 	tagTypes: ['MyAds', 'AllAds', 'SpecificAd', 'Comments', 'SellerAds'],
 	baseQuery: baseQueryWithReauth,
-
 	endpoints: builder => ({
 		getAds: builder.query({
 			query: () => `/ads`,
@@ -20,10 +19,8 @@ export const apiSlice = createApi({
 		myAds: builder.query({
 			query: () => {
 				return {
-					url: `/ads/me?`,
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-					},
+					url: `/ads/me`,
+					
 				};
 			},
 			providesTags: result =>
@@ -55,9 +52,6 @@ export const apiSlice = createApi({
 						description,
 						price,
 					},
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-					},
 				};
 			},
 			invalidatesTags: [
@@ -75,9 +69,6 @@ export const apiSlice = createApi({
 					url: `/ads/${specificAd.id}/image`,
 					method: 'POST',
 					body: formData,
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-					},
 				};
 			},
 			invalidatesTags: [
@@ -91,9 +82,6 @@ export const apiSlice = createApi({
 				return {
 					url: `/ads/${specificAd.id}/image?file_url=${files?.url}`,
 					method: 'DELETE',
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-					},
 				};
 			},
 			invalidatesTags: [
@@ -107,9 +95,6 @@ export const apiSlice = createApi({
 				return {
 					url: `/ads/${specificAd.id}`,
 					method: 'DELETE',
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-					},
 				};
 			},
 			invalidatesTags: [
@@ -123,9 +108,7 @@ export const apiSlice = createApi({
 				return {
 					url: `/ads/${specificAd.id}`,
 					method: 'PATCH',
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-					},
+
 					body: {
 						title,
 						description,
@@ -181,3 +164,5 @@ export const {
 	useDeleteImgMutation,
 	useSellerAdsQuery,
 } = apiSlice;
+
+export default apiSlice;

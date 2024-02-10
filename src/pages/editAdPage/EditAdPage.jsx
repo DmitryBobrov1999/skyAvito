@@ -3,7 +3,7 @@ import {
 	useDeleteImgMutation,
 	useEditAdMutation,
 	usePostImgMutation,
-} from '../../store/slices/apiSlice';
+} from '@store/slices/apiSlice';
 import * as S from './EditAdPage.styles';
 import { useMediaQuery } from '@uidotdev/usehooks';
 

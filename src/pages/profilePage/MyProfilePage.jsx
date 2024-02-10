@@ -1,19 +1,21 @@
 import moment from 'moment/moment';
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Footer } from '../../components/footer/Footer';
-import { Header } from '../../components/header/Header';
-import { Spinner } from '../../components/spinner/Spinner';
-import { useMyAdsQuery } from '../../store/slices/apiSlice';
+import { Footer } from '@components/footer/Footer';
+import { Header } from '@components/header/Header';
+import { Spinner } from '@components/spinner/Spinner';
+// import { useMyAdsQuery } from '@store/slices/apiSlice';
 
 import {
 	useChangeAvatarMutation,
 	useChangeInfoMutation,
-} from '../../store/slices/userApiSlice';
+} from '@store/slices/userApiSlice';
 import { AddAdPage } from '../addAd/AddAdPage';
 import * as S from './MyProfilePage.styles';
+import myApi from '@store/slices/userApiSlice';
+import api from '@store/slices/apiSlice';
 
-export const ProfilePage = ({ user, isLoading, token }) => {
+export const ProfilePage = () => {
 	const [name, setName] = useState(null);
 	const [surname, setSurname] = useState(null);
 	const [phone, setPhone] = useState(null);
@@ -26,9 +28,23 @@ export const ProfilePage = ({ user, isLoading, token }) => {
 	const phoneInput = document.getElementById('phone');
 	const [changeInfo] = useChangeInfoMutation();
 	const [changeAvatar] = useChangeAvatarMutation();
-	const { data: dataAds } = useMyAdsQuery();
 
 	const [activeAddAd, setActiveAddAd] = useState(null);
+
+	const {
+		data: user,
+		isLoading: getUserLoading,
+		isSuccess,
+	} = myApi.useGetUserQuery();
+
+	const [myAds, { data: dataAds, isLoading: myAdsLoading }] =
+		api.useLazyMyAdsQuery();
+
+	useEffect(() => {
+		if(isSuccess) {
+			myAds();
+		}
+	}, [isSuccess, myAds]);
 
 	useEffect(() => {
 		(async () => {
@@ -79,11 +95,11 @@ export const ProfilePage = ({ user, isLoading, token }) => {
 					activeAddAd && { WebkitFilter: 'blur(5px)', filter: 'blur(5px)' }
 				}
 			>
-				{isLoading ? (
+				{myAdsLoading && getUserLoading ? (
 					<Spinner />
 				) : (
 					<S.ProfilePageContainer>
-						<Header setActiveAddAd={setActiveAddAd} token={token} />
+						<Header setActiveAddAd={setActiveAddAd} />
 						<S.ProfilePageMain>
 							<S.ProfilePageMainContainer>
 								<S.ProfilePageMainCenterBlock>

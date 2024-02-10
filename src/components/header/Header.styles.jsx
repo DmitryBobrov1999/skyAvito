@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../../pages/breakPoints';
+import { device } from '../../breakPoints';
 
 export const ProfilePageHeader = styled.header`
 	background-color: #009ee4;
